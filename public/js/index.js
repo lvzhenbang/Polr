@@ -92,18 +92,3 @@ $(function() {
 
     });
 });
-
-
-$(function() {
-    var clipboard = new Clipboard('#clipboard-copy');
-    clipboard.on('success', function(e) {
-        e.clearSelection();
-        $('#clipboard-copy').tooltip('show');
-    });
-
-    $('#clipboard-copy').on('blur',function () {
-        $(this).tooltip('destroy');
-    }).on('mouseleave',function () {
-        $(this).tooltip('destroy');
-    });
-})
