@@ -8,9 +8,10 @@
 <h1 class='title'>{{env('APP_NAME')}}</h1>
 
 <form method='POST' action='/shorten' role='form'>
-    <input type='url' autocomplete='off'
-        class='form-control long-link-input' placeholder='http://' name='link-url' />
-
+    <div class="form-group">
+        <input type='url' autocomplete='off' class='form-control long-link-input' pattern="{{ env('SETTING_INDEX_REDIRECT') }}.*" placeholder='https://' name='link-url' />
+        <i>pattern: {{ env('SETTING_INDEX_REDIRECT') }}/xxx</i>
+    </div>
     <div class='row' id='options' ng-cloak>
         <p>Customize link</p>
 
@@ -48,5 +49,6 @@
 @endsection
 
 @section('js')
-<script src='js/index.js'></script>
+<script src='/js/clipboard.min.js'></script>
+<script src='/js/index.js'></script>
 @endsection

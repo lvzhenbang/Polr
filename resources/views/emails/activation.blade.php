@@ -1,4 +1,4 @@
-<h3>Hello {{$username}}!</h3>
+<h3>Hello {{ urldecode($username) }}!</h3>
 
 <p>Thanks for registering at {{env('APP_NAME')}}. To use your account,
 you will need to activate it by clicking the following link:</p>

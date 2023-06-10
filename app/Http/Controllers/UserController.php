@@ -126,7 +126,7 @@ class UserController extends Controller {
 
         if ($acct_activation_needed) {
             Mail::send('emails.activation', [
-                'username' => $username, 'recovery_key' => $user->recovery_key, 'ip' => $ip
+                'username' => urlencode($username), 'recovery_key' => $user->recovery_key, 'ip' => $ip
             ], function ($m) use ($user) {
                 $m->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
 
@@ -153,7 +153,7 @@ class UserController extends Controller {
         $recovery_key = UserHelper::resetRecoveryKey($user->username);
 
         Mail::send('emails.lost_password', [
-            'username' => $user->username, 'recovery_key' => $recovery_key, 'ip' => $ip
+            'username' => urlencode($user->username), 'recovery_key' => $recovery_key, 'ip' => $ip
         ], function ($m) use ($user) {
             $m->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
 
@@ -164,6 +164,7 @@ class UserController extends Controller {
     }
 
     public function performActivation(Request $request, $username, $recovery_key) {
+        $username = urldecode($username);
         $user = UserHelper::getUserByUsername($username, true);
 
         if (UserHelper::userResetKeyCorrect($username, $recovery_key, true)) {

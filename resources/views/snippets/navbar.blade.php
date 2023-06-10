@@ -35,18 +35,7 @@
                     <li><a href="{{route('signup')}}">Sign Up</a></li>
                 @endif
 
-                <li class="dropdown">
-                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
-                    <div class="dropdown-menu pull-right login-dropdown-menu" id="dropdown">
-                        <h2>Login</h2>
-                        <form action="login" method="POST" accept-charset="UTF-8">
-                            <input type="text" name="username" placeholder='Username' size="30" class="form-control login-form-field" />
-                            <input type="password" name="password" placeholder='Password' size="30" class="form-control login-form-field" />
-                            <input type="hidden" name='_token' value='{{csrf_token()}}' />
-                            <input class="btn btn-success form-control login-form-submit" type="submit" name="login" value="Sign In" />
-                        </form>
-                    </div>
-                </li>
+                <li><a href="{{route('login')}}">Sign In</a></li>
             @else
                 <div class='nav pull-right navbar-nav'>
                     <li class='dropdown'>

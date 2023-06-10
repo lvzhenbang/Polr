@@ -1,4 +1,4 @@
-<h3>Hello {{$username}}!</h3>
+<h3>Hello {{ urldecode($username) }}!</h3>
 
 <p>
     You may use the link located in this email to reset your password for your
