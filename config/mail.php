@@ -1,5 +1,5 @@
 <?php
-$mail_object = [
+$mail_arr = [
     'driver' => env('MAIL_DRIVER'),
     'host' => env('MAIL_HOST'),
     'port' => env('MAIL_PORT'),
@@ -11,7 +11,7 @@ $mail_object = [
 
 ];
 if (!empty(env('MAIL_ENCRYPTION'))) {
-    $mail_object->encryption = env('MAIL_ENCRYPTION');
+    array_push($mail_arr, "encryption",env('MAIL_ENCRYPTION'));
 }
 
-return $mail_object;
+return $mail_arr;
