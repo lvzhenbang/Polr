@@ -11,7 +11,7 @@ $mail_arr = [
 
 ];
 if (!empty(env('MAIL_ENCRYPTION'))) {
-    array_push($mail_arr, "encryption",env('MAIL_ENCRYPTION'));
+    $mail_arr["encryption"] = env('MAIL_ENCRYPTION');
 }
 
 return $mail_arr;
