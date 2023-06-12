@@ -11,7 +11,7 @@ $mail_arr = [
 
 ];
 
-if (env('MAIL_ENCRYPTION') == 465) {
+if (env('MAIL_PORT') == 465) {
     if (!empty(env('MAIL_ENCRYPTION'))) {
         $mail_arr["encryption"] = env('MAIL_ENCRYPTION');
     } else {
