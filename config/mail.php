@@ -10,8 +10,13 @@ $mail_arr = [
     'pretend' => false,
 
 ];
-if (!empty(env('MAIL_ENCRYPTION'))) {
-    $mail_arr["encryption"] = env('MAIL_ENCRYPTION');
+
+if (env('MAIL_ENCRYPTION') == 465) {
+    if (!empty(env('MAIL_ENCRYPTION'))) {
+        $mail_arr["encryption"] = env('MAIL_ENCRYPTION');
+    } else {
+        $mail_arr["encryption"] = "ssl";
+    }
 }
 
 return $mail_arr;
