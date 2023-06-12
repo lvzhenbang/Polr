@@ -13,6 +13,9 @@
         </div>
 
         <ul id="navbar" class="nav navbar-collapse collapse navbar-nav" id="nbc">
+		    <li><a href="https://st.arabellahair.com">Arabella</a></li>
+		    <li><a href="https://st.megalook.com">Megalook</a></li>
+            
 		    <li><a href="{{ route('about') }}">About</a></li>
 
             @if (empty(session('username')))
