@@ -182,6 +182,7 @@ class UserController extends Controller {
     }
 
     public function performPasswordReset(Request $request, $username, $recovery_key) {
+        $username = urldecode($username);
         $new_password = $request->input('new_password');
         $user = UserHelper::getUserByUsername($username);
 
